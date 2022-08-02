@@ -1,6 +1,5 @@
 @import "variable.scss";
 *{
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,13 +26,31 @@
     position: relative;
   }
   &__errors {
-    color: red;
+    margin-top: 4px;
+    position: absolute;
+    color: $error;
+    font-weight: 400;
+    font-size: $fs-small;
+    line-height: 10px;
+    /* identical to box height */
+    letter-spacing: -0.02em;
   }
   &__label {
     font-weight: 400;
     font-size: $fs-preMedium;
     line-height: 13px;
     letter-spacing: -0.02em;
-    color: ;
+    color: $secondary;
+    margin-bottom: 4px;
   }
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+.mt-6 {
+  margin-top: 24px;
+}
+.mr-4 {
+  margin-right: 16px;
 }

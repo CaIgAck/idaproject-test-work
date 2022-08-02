@@ -5,7 +5,7 @@
       :key="index"
       class="card-provider__item"
     >
-      <CardProduct />
+      <CardProduct :card="card" />
     </div>
   </div>
 </template>
@@ -14,10 +14,10 @@
 export default {
   name: "CardProductProvider",
   components: {},
-  data() {
-    return {
-      cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    };
+  computed: {
+    cards() {
+      return this.$store.getters.getCardsList;
+    },
   },
 };
 </script>

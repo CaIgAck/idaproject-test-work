@@ -1,16 +1,18 @@
 <template>
-  <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">
-    <TextareaField
-      @input="$emit('input', $event)"
-      :placeholder="placeholder"
-      :label="name"
-      :disabled="disabled"
-      :value="value"
-      :errors="errors"
-      :rows="rows"
-      :cols="cols"
-    />
-  </ValidationProvider>
+  <div>
+    <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">
+      <TextareaField
+        @input="$emit('input', $event)"
+        :placeholder="placeholder"
+        :label="name"
+        :disabled="disabled"
+        :value="value"
+        :errors="errors"
+        :rows="rows"
+        :cols="cols"
+      />
+    </ValidationProvider>
+  </div>
 </template>
 
 <script>

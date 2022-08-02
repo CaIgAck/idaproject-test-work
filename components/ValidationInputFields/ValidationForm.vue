@@ -1,5 +1,5 @@
 <template>
-  <ValidationObserver v-slot="{ validate, reset, handleSubmit }">
+  <ValidationObserver v-slot="{ handleSubmit }">
     <form
       @submit.prevent="
         () => {
@@ -7,13 +7,7 @@
         }
       "
     >
-      <slot
-        :class="className"
-        v-bind:validate="validate"
-        v-bind:reset="reset"
-        v-bind:handleSubmit="handleSubmit"
-      >
-      </slot>
+      <slot v-bind:handleSubmit="handleSubmit"> </slot>
     </form>
   </ValidationObserver>
 </template>
@@ -21,11 +15,6 @@
 <script>
 export default {
   name: "ValidationForm",
-  props: {
-    className: {
-      type: String,
-    },
-  },
 };
 </script>
 

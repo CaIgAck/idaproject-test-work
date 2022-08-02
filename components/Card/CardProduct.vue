@@ -1,18 +1,17 @@
 <template>
   <div class="card">
-    <button class="card-delete">
+    <button class="card-delete" @click="deleteCard">
       <img src="../../assets/img/delete.svg" alt="delete" />
     </button>
     <div class="card__container-img">
       <img class="card__img" src="../../assets/img/IMG_9227.JPG" alt="photo" />
     </div>
     <div class="card__container-info">
-      <p class="card__container-info-title">Наименование товара</p>
+      <p class="card__container-info-title">{{ title }}</p>
       <p class="card__container-info-description">
-        Довольно-таки интересное описание товара в несколько строк.
-        Довольно-таки интересное описание товара в несколько строк
+        {{ description }}
       </p>
-      <p class="card__container-info-total">10 000 руб.</p>
+      <p class="card__container-info-total">{{ cost }} руб.</p>
     </div>
   </div>
 </template>
@@ -20,6 +19,32 @@
 <script>
 export default {
   name: "CardProduct",
+  props: {
+    card: {
+      type: Object,
+    },
+    index: {
+      type: Number,
+    },
+  },
+  computed: {
+    description() {
+      return this.card.description.length > 120
+        ? `${this.card.description.slice(0, 120)}...`
+        : `${this.card.description.slice(0, 120)}`;
+    },
+    title() {
+      return `${this.card.title.slice(0, 20)}`;
+    },
+    cost() {
+      return `${this.card.cost.slice(0, 20)}`;
+    },
+  },
+  methods: {
+    deleteCard() {
+      this.$store.commit("deleteCard", this.index);
+    },
+  },
 };
 </script>
 
@@ -87,6 +112,7 @@ export default {
       margin-bottom: 16px;
     }
     &-description {
+      height: 80px;
       font-weight: 400;
       font-size: $fs-maxMedium;
       line-height: 20px;

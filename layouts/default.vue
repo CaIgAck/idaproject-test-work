@@ -1,7 +1,8 @@
 <template>
   <div class="layout">
-    <div class="layout-container"></div>
-    <nuxt />
+    <div class="layout-container">
+      <nuxt />
+    </div>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ export default {
   background-color: $bg-color;
   min-height: 100vh;
   &-container {
-    max-width: 1350px;
+    max-width: 1392px;
     margin: 0 auto;
   }
 }
