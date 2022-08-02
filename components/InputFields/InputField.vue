@@ -1,7 +1,9 @@
 <template>
   <div class="form-control">
     <div>
-      {{ label }}
+      <div class="form-control__label">
+        {{ label }}
+      </div>
       <div class="form-control__container">
         <input
           :type="type"
@@ -22,7 +24,7 @@
 export default {
   name: "InputField",
   props: {
-    value: [String, Number, InputEvent],
+    value: [String, Number],
     disabled: Boolean,
     errors: Array,
     placeholder: String,

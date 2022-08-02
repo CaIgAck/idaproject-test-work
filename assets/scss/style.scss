@@ -29,4 +29,11 @@
   &__errors {
     color: red;
   }
+  &__label {
+    font-weight: 400;
+    font-size: $fs-preMedium;
+    line-height: 13px;
+    letter-spacing: -0.02em;
+    color: ;
+  }
 }

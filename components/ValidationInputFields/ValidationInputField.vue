@@ -1,21 +1,23 @@
 <template>
   <div>
-    <!--    <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">-->
-    <!--      <InputField-->
-    <!--        :placeholder="placeholder"-->
-    <!--        :label="name"-->
-    <!--        :disabled="disabled"-->
-    <!--        :value="value"-->
-    <!--        :type="type"-->
-    <!--        :errors="errors"-->
-    <!--      />-->
-    <!--    </ValidationProvider>-->
+    <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">
+      <InputField
+        :placeholder="placeholder"
+        :label="name"
+        :disabled="disabled"
+        :value="value"
+        :type="type"
+        :errors="errors"
+      />
+    </ValidationProvider>
   </div>
 </template>
 
 <script>
+import InputField from "@/components/InputFields/InputField";
 export default {
   name: "ValidationInputField",
+  components: { InputField },
   props: {
     value: [String, Number],
     disabled: Boolean,
