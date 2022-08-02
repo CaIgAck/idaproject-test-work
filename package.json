@@ -1,0 +1,37 @@
+{
+  "name": "idaproject-test-work",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "core-js": "^3.19.3",
+    "moment": "^2.29.4",
+    "node-sass": "^7.0.1",
+    "nuxt": "^2.15.8",
+    "standard": "^17.0.0",
+    "vee-validate": "3.4.5",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/eslint-parser": "^7.18.9",
+    "@nuxt/types": "^2.15.8",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.0",
+    "sass-loader": "10"
+  }
+}
