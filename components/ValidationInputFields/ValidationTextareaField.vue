@@ -1,23 +1,23 @@
 <template>
-  <!--  <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">-->
-  <!--    <TextareaField-->
-  <!--      @input="$emit('input', $event)"-->
-  <!--      :placeholder="placeholder"-->
-  <!--      :label="name"-->
-  <!--      :disabled="disabled"-->
-  <!--      :value="value"-->
-  <!--      :errors="errors"-->
-  <!--      :rows="rows"-->
-  <!--      :cols="cols"-->
-  <!--    />-->
-  <!--  </ValidationProvider>-->
+  <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">
+    <TextareaField
+      @input="$emit('input', $event)"
+      :placeholder="placeholder"
+      :label="name"
+      :disabled="disabled"
+      :value="value"
+      :errors="errors"
+      :rows="rows"
+      :cols="cols"
+    />
+  </ValidationProvider>
 </template>
 
 <script>
-// import TextareaField from "@/components/InputFields/TextareaField";
+import TextareaField from "@/components/InputFields/TextareaField";
 export default {
   name: "ValidationTextareaField",
-  // components: { TextareaField },
+  components: { TextareaField },
   props: {
     value: [String, Number],
     disabled: Boolean,

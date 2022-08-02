@@ -1,7 +1,9 @@
 <template>
   <div class="form-control">
     <div>
-      {{ label }}
+      <div class="form-control__label">
+        {{ label }}
+      </div>
       <div class="form-control__container">
         <textarea
           :placeholder="placeholder"
@@ -30,7 +32,7 @@ export default {
     label: String,
     rows: String,
     cols: String,
-    value: [String, Number, InputEvent],
+    value: [String, Number],
   },
   computed: {
     normalizeData: {
