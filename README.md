@@ -13,8 +13,8 @@ $ yarn dev
 $ yarn build
 $ yarn start
 
-# generate static project
-$ yarn generate
+#Также можно открыть package.json и запустить скрипт оттуда
+#Разработка велась на версии node.js 16.15.0
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
