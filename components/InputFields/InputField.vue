@@ -2,7 +2,10 @@
   <div class="form-control">
     <div>
       <div class="form-control__label">
-        {{ label }}
+        <div>
+          {{ label }}
+        </div>
+        <div class="form-control__label-required"></div>
       </div>
       <div class="form-control__container">
         <input
@@ -30,6 +33,7 @@ export default {
     placeholder: String,
     label: String,
     type: String,
+    requiredCustom: Boolean,
   },
   computed: {
     normalizeData: {

@@ -7,6 +7,7 @@
             placeholder="Введите наименование товара"
             label="Наименование товара"
             rules="required"
+            :required-custom="true"
             v-model="cardForm.title"
           />
           <ValidationTextareaField
@@ -17,6 +18,7 @@
           />
           <ValidationInputField
             class="mt-4"
+            :required-custom="true"
             placeholder="Введите ссылку"
             label="Ссылка на изображение товара"
             rules="required"
@@ -24,12 +26,18 @@
           />
           <ValidationInputField
             class="mt-4"
+            :required-custom="true"
             placeholder="Введите цену"
             label="Цена товара"
             rules="required"
+            type="number"
             v-model="cardForm.cost"
           />
-          <ButtonCustom class="mt-6" @click="save">
+          <ButtonCustom
+            :disabled="!isValidForm"
+            class="mt-6"
+            @click="handleSubmit(save)"
+          >
             Добавить товар
           </ButtonCustom>
         </div>
@@ -43,6 +51,7 @@ import ValidationForm from "@/components/ValidationInputFields/ValidationForm";
 import ValidationInputField from "@/components/ValidationInputFields/ValidationInputField";
 import ValidationTextareaField from "@/components/ValidationInputFields/ValidationTextareaField";
 import ButtonCustom from "@/components/UI/Button";
+import { cloneDeep } from "lodash/lang";
 const cardForm = {
   title: null,
   description: null,
@@ -53,7 +62,7 @@ export default {
   name: "CardCreate",
   data() {
     return {
-      cardForm: cardForm,
+      cardForm: cloneDeep(cardForm),
     };
   },
   components: {
@@ -62,9 +71,23 @@ export default {
     ValidationInputField,
     ValidationForm,
   },
+  computed: {
+    isValidForm() {
+      return (
+        !!this.cardForm.title && !!this.cardForm.link && !!this.cardForm.cost
+      );
+    },
+  },
   methods: {
     save() {
-      this.$store.dispatch("fakeQuery", this.cardForm);
+      this.$store
+        .dispatch("fakeQuery", {
+          value: this.cardForm,
+          mutationName: "setCard",
+        })
+        .then(() => {
+          this.cardForm = cloneDeep(cardForm);
+        });
     },
   },
 };

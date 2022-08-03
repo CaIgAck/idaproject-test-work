@@ -1,5 +1,10 @@
 <template>
-  <button class="button-control" @click="$emit('click')">
+  <button
+    class="button-control"
+    :class="disabled ? 'disabled' : ''"
+    @click="$emit('click')"
+    :disabled="disabled"
+  >
     <slot />
   </button>
 </template>
@@ -7,11 +12,17 @@
 <script>
 export default {
   name: "Button",
+  props: {
+    disabled: { type: Boolean },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 @import "../../assets/scss/variable.scss";
+.disabled {
+  background-color: #eeeeee !important;
+}
 .button-control {
   position: relative;
   background: $success;

@@ -4,14 +4,14 @@
       <img src="../../assets/img/delete.svg" alt="delete" />
     </button>
     <div class="card__container-img">
-      <img class="card__img" src="../../assets/img/IMG_9227.JPG" alt="photo" />
+      <img class="card__img" :src="link" alt="photo" />
     </div>
     <div class="card__container-info">
       <p class="card__container-info-title">{{ title }}</p>
       <p class="card__container-info-description">
         {{ description }}
       </p>
-      <p class="card__container-info-total">{{ cost }} руб.</p>
+      <p class="card__container-info-total">{{ cost | costFormatting }} руб.</p>
     </div>
   </div>
 </template>
@@ -29,20 +29,26 @@ export default {
   },
   computed: {
     description() {
-      return this.card.description.length > 120
-        ? `${this.card.description.slice(0, 120)}...`
-        : `${this.card.description.slice(0, 120)}`;
+      return this.card?.description?.length > 120
+        ? `${this.card?.description?.slice(0, 120)}...`
+        : `${this.card?.description?.slice(0, 120)}`;
     },
     title() {
-      return `${this.card.title.slice(0, 20)}`;
+      return `${this.card?.title.slice(0, 20)}`;
     },
     cost() {
-      return `${this.card.cost.slice(0, 20)}`;
+      return `${this.card?.cost.slice(0, 20)}`;
+    },
+    link() {
+      return this.card?.link;
     },
   },
   methods: {
     deleteCard() {
-      this.$store.commit("deleteCard", this.index);
+      this.$store.dispatch("fakeQuery", {
+        value: this.index,
+        mutationName: "deleteCard",
+      });
     },
   },
 };

@@ -42,6 +42,25 @@
     letter-spacing: -0.02em;
     color: $secondary;
     margin-bottom: 4px;
+    display: flex;
+    align-items: start;
+    &-required {
+      width: 4px;
+      height: 4px;
+      background: $error;
+      border-radius: 4px;
+    }
+  }
+  &__select {
+    background: #FFFEFB;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: #B4B4B4;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 5px 27px 5px 16px;
+    border: none;
   }
 }
 

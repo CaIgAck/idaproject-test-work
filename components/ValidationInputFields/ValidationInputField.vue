@@ -9,6 +9,7 @@
         :value="value"
         :type="type"
         :errors="errors"
+        :required="requiredCustom"
       />
     </ValidationProvider>
   </div>
@@ -27,6 +28,7 @@ export default {
     type: String,
     rules: String,
     nameError: String,
+    requiredCustom: Boolean,
   },
   computed: {
     name() {
